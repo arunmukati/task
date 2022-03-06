@@ -1,0 +1,43 @@
+.heading {
+  width: 30%;
+  background-color: #ebebeb;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  h1 {
+    font-size: 15px;
+  }
+}
+
+form {
+  label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  input {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+.success-error-div{
+  width: 40%;
+  margin-bottom: 10px;
+  h2{
+    font-size: 14px;
+    padding: 10px 20px;
+    color: white;
+  }
+}
+.error{
+  background-color: #D8000C;
+}
+.success{
+  background-color: #4F8A10;
+}

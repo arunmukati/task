@@ -1,0 +1,15 @@
+<div class="heading">
+  <h1>Create a new post</h1>
+</div>
+<div class="success-error-div" [ngClass]="sendFeedFlag=='success' ? 'success' : 'error'">
+  <h2 *ngIf="sendFeedFlag == 'error'">Post title already exist</h2>
+  <h2 *ngIf="sendFeedFlag == 'success'">Post successfully added</h2>
+</div>
+<!-- (ngSubmit)="sendFeed()" -->
+<form [formGroup]="feedForm" >
+  <label for="title">Title: </label>
+  <input id="title" type="text" formControlName="title">
+  <label for="message">Message: </label>
+  <textarea id="message" rows="4" cols="30" formControlName="message"></textarea>
+  <button type="submit" (click)="sendFeed()">Send</button>
+</form>

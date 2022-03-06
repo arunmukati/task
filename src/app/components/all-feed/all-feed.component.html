@@ -1,0 +1,13 @@
+<div class="heading">
+  <h1>Your Feed</h1>
+</div>
+<div class="all-feeds">
+    <div *ngFor="let feed of feeds;let i=index" key={i} class="feed">
+        <div class="img-div"></div>
+        <div class="details">
+            <h6>{{feed.title}}</h6>
+            <span> {{feed.time}}</span>
+            <p> {{feed.message}}</p>
+        </div>
+    </div>
+</div>
