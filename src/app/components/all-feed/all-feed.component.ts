@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-all-feed',
   templateUrl: './all-feed.component.html',
@@ -7,19 +6,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllFeedComponent implements OnInit {
   feeds = [];
-  constructor() { }
-
+  channel = new BroadcastChannel('channel-new-feed');
+  constructor(private changeDetection: ChangeDetectorRef){}
   ngOnInit(): void {
     this.getAllFeeds();
-    window.addEventListener('storage',()=>{
-      this.getAllFeeds();
-    })
-    
+    this.channel.onmessage= (feed)=>{
+      this.feeds.push(feed.data);
+      this.changeDetection.detectChanges();
+    } 
   }
   getAllFeeds() {
     let storageFeeds = localStorage.getItem('all-feeds');
     this.feeds= JSON.parse(storageFeeds);
   }
 
-
+  
 }

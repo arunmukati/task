@@ -11,6 +11,7 @@ export class CreateFeedComponent implements OnInit {
     title: new FormControl(''),
     message: new FormControl(''),
   });
+  channel = new BroadcastChannel('channel-new-feed');
   sendFeedFlag = ''
   constructor() { }
 
@@ -37,6 +38,7 @@ export class CreateFeedComponent implements OnInit {
     array.push(obj)
     localStorage.setItem('all-feeds', JSON.stringify(array))
     this.showMsg('success');
+    this.channel.postMessage(obj);
   }
   showMsg(msg){
     this.sendFeedFlag = msg;
